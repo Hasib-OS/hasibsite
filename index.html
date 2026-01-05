@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hasib OS</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #000000;
+    color: #b4cfc6;
+    transition: all 0.3s;
+  }
+
+  /* Header label */
+  header {
+    background-color: #b4cfc6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    padding: 0 20px;
+    width: 100%;
+  }
+
+  header img {
+    height: 60px;
+  }
+
+  #lang-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    background-color: #000;
+    color: #b4cfc6;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  /* Main content */
+  .main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+  }
+
+  .content {
+    max-width: 50%;
+  }
+
+  h1, h2 {
+    margin-bottom: 20px;
+  }
+
+  h1 { font-size: 3rem; }
+  h2 { font-size: 2rem; margin-bottom: 40px; }
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .buttons button {
+    padding: 24px 48px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: white;
+  }
+
+  .forum { background-color: #b4cfc6; }
+  .documentary { background-color: #b4cfc6; }
+  .download { background: linear-gradient(90deg, #ff7f50, #ff1493); }
+
+  .buttons button:hover { transform: scale(1.05); opacity: 0.9; }
+
+  /* PC Image */
+  .pc-image img { max-width: 600px; height: auto; }
+
+  /* Contact section */
+  .contact {
+    margin-top: 80px;
+    text-align: center;
+  }
+
+  .contact h3 { font-size: 2rem; margin-bottom: 20px; }
+
+  .contact-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .contact-buttons button {
+    padding: 20px 40px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: white;
+  }
+
+  .email { background-color: #f97316; }
+  .whatsapp { background-color: #25d366; }
+
+  .contact-buttons button:hover { transform: scale(1.05); opacity: 0.9; }
+
+  /* Responsive */
+  @media(max-width: 900px){
+    .main { flex-direction: column; align-items: center; }
+    .content, .pc-image { max-width: 100%; text-align: center; }
+    .pc-image img { margin-top: 40px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <img src="https://iso.hasibos.xyz/logo.png" alt="Hasib OS Logo">
+  <button id="lang-btn">English</button>
+</header>
+
+<!-- Main Content -->
+<section class="main">
+  <div class="content">
+    <h1 id="title">حاسب او اس التقنية بلا حدود</h1>
+
+    <div class="buttons">
+      <button class="forum" id="btn-forum" onclick="window.location.href='https://hasibos.flarum.cloud'">المناقشات</button>
+      <button class="documentary" id="btn-doc" onclick="window.location.href='https://hasib-doc.free.nf/'">الموسوعة</button>
+      <button class="download" id="btn-download" onclick="window.location.href='https://iso.hasibos.xyz/alhasan0us@gmail.com-mega/hasib%20os-2026.01.01-x86_64.iso'">تحميل حاسب او اس</button>
+    </div>
+  </div>
+  <div class="pc-image">
+    <img src="https://iso.hasibos.xyz/pc.png" alt="PC Illustration">
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact">
+  <h3 id="contact-title">للتواصل</h3>
+  <div class="contact-buttons">
+    <button class="email" id="btn-email" onclick="window.location.href='mailto:support@hasibos.xyz'">البريد الإلكتروني</button>
+    <button class="whatsapp" id="btn-whatsapp" onclick="window.location.href='https://wa.me/6282260079448'">واتساب</button>
+  </div>
+</section>
+
+<script>
+  // Language toggle
+  const langBtn = document.getElementById('lang-btn');
+  let isEnglish = false;
+
+  langBtn.addEventListener('click', () => {
+    isEnglish = !isEnglish;
+    if(isEnglish){
+      langBtn.textContent = "عربي";
+      document.getElementById('title').textContent = "Hasib OS Tech Without Limits";
+      document.getElementById('subtitle').textContent = "";
+      document.getElementById('btn-forum').textContent = "Forum";
+      document.getElementById('btn-doc').textContent = "Documentary";
+      document.getElementById('btn-download').textContent = "Download";
+      document.getElementById('contact-title').textContent = "Contact";
+      document.getElementById('btn-email').textContent = "Email";
+      document.getElementById('btn-whatsapp').textContent = "WhatsApp";
+    } else {
+      langBtn.textContent = "English";
+      document.getElementById('title').textContent = "حاسب او اس التقنية بلا حدود";
+      document.getElementById('subtitle').textContent = "Hasib OS Tech Without Limits";
+      document.getElementById('btn-forum').textContent = "المناقشات";
+      document.getElementById('btn-doc').textContent = "الموسوعة";
+      document.getElementById('btn-download').textContent = "تحميل حاسب او اس";
+      document.getElementById('contact-title').textContent = "للتواصل";
+      document.getElementById('btn-email').textContent = "البريد الإلكتروني";
+      document.getElementById('btn-whatsapp').textContent = "واتساب";
+    }
+  });
+</script>
+
+</body>
+</html>
